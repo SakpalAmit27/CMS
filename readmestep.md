@@ -1,0 +1,1 @@
+on the way to create the db at phpmyadmin
