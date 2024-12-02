@@ -37,7 +37,7 @@
     </div>
   </div>
   <div class="navbar-center">
-    <span><a href="/mycms">opencms</a></span>
+    <span><a href="/mycms">openspear</a></span>
   </div>
   <div class="navbar-end">
     <button class="btn btn-ghost btn-circle">
