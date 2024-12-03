@@ -1,3 +1,31 @@
+
+
+<?php
+
+include('./includes/database.php');
+
+if(isset($_POST['email'])){
+
+    $query = 'SELECT * FROM users WHERE
+    email = "' . $_POST['email'] . '" 
+    AND 
+    password = "' . $_POST['password'] . '"';
+
+
+
+ $result = mysqli_query($connect,$query);
+ $record = mysqli_fetch_assoc($result);
+
+ 
+ var_dump($result); 
+
+
+}
+
+ 
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -52,3 +80,7 @@
 </center>
 
 </html>
+
+
+
+

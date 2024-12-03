@@ -20,12 +20,12 @@
    include('includes/components/navbar/navbar.php');
 
    
+   include('includes/database.php');
 
    include('includes/components/loginform/loginform.php');
 
-   include('includes/database.php');
 
    // include("includes/components/footer/footer.php");
 
-   echo "welcome to openspear"
+ 
 ?>
