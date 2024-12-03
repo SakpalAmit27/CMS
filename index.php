@@ -1,3 +1,12 @@
+<?php
+// added output buffering 
+ob_start();
+
+include('includes/database.php');
+include('includes/components/navbar/navbar.php');
+include('includes/components/loginform/loginform.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,22 +19,11 @@
    <link rel="stylesheet" href="includes/components/footer/footer.css">
 </head>
 <body>
-   
+   <!-- Main content -->
 </body>
 </html>
 
 <?php
-   
-
-   include('includes/components/navbar/navbar.php');
-
-   
-   include('includes/database.php');
-
-   include('includes/components/loginform/loginform.php');
-
-
-   // include("includes/components/footer/footer.php");
-
- 
+// after the output flush it out // 
+ob_end_flush();
 ?>
