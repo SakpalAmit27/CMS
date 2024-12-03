@@ -18,9 +18,14 @@
    
 
    include('includes/components/navbar/navbar.php');
+
+   
+
+   include('includes/components/loginform/loginform.php');
+
    include('includes/database.php');
 
-   include("includes/components/footer/footer.php");
+   // include("includes/components/footer/footer.php");
 
-   echo "welcome to opencms"
+   echo "welcome to openspear"
 ?>
