@@ -14,11 +14,26 @@ if(isset($_POST['email'])){
         $user = $result->fetch_assoc();
 
         var_dump($user);
+
+        if($user){
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['email'] = $user['email']; 
+            $_SESSION['username'] = $user['username'];
+
+            // giving a feedback after its connect // 
+
+            header('Location:index.php');
+            exit;
+        }else{
+            echo '<div style="color: red; text-align: center;">Invalid email or password.</div>';
+        }
+        $stmt->close();
+    }else{
+        echo 'Could not prepare statement!'; 
     }
 
 
 }
-
  
 ?>
 
