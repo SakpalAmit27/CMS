@@ -2,8 +2,6 @@
 
 <?php
 
-include('./includes/database.php');
-
 if(isset($_POST['email'])){
     if($stmt = $connect->prepare('SELECT * FROM users WHERE email = ? AND password = ? AND active = 1')){
         $hashed = SHA1($_POST['password']);
@@ -13,7 +11,9 @@ if(isset($_POST['email'])){
 
         $result = $stmt->get_result();
 
-        
+        $user = $result->fetch_assoc();
+
+        var_dump($user);
     }
 
 
