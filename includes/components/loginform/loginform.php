@@ -21,9 +21,9 @@ if(isset($_POST['email'])){
             $_SESSION['username'] = $user['username'];
 
             // giving a feedback after its connect // 
-
-            header('Location:index.php');
+            header('Location:dashboard.php'); 
             exit;
+
         }else{
             echo '<div style="color: red; text-align: center;">Invalid email or password.</div>';
         }
