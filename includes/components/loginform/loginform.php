@@ -5,19 +5,16 @@
 include('./includes/database.php');
 
 if(isset($_POST['email'])){
+    if($stmt = $connect->prepare('SELECT * FROM users WHERE email = ? AND password = ? AND active = 1')){
+        $hashed = SHA1($_POST['password']);
+        $stmt->bind_param('ss',$_POST['email'],$hashed); 
 
-    $query = 'SELECT * FROM users WHERE
-    email = "' . $_POST['email'] . '" 
-    AND 
-    password = "' . $_POST['password'] . '"';
+        $stmt->execute(); 
 
+        $result = $stmt->get_result();
 
-
- $result = mysqli_query($connect,$query);
- $record = mysqli_fetch_assoc($result);
-
- 
- var_dump($result); 
+        
+    }
 
 
 }
