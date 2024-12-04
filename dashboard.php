@@ -6,6 +6,9 @@
     include('./includes/components/navbar/navbar.php');
     
     var_dump($_SESSION);
+
+    include('./includes/components/secure/functions.php');
+    secure();
     ?>
 
 <!DOCTYPE html>
