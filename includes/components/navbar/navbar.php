@@ -31,8 +31,8 @@
         tabindex="0"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li><a>Profile</a></li>
-        <li><a>Create Post</a></li>
-        <li><a>About</a></li>
+        <li><a href="dashboard.php">Dashboard</a></li>
+        <li><a href="logout.php">Logout</a></li>
       </ul>
     </div>
   </div>
