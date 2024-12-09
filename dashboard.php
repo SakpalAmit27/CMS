@@ -5,7 +5,6 @@
 
     include('./includes/components/navbar/navbar.php');
     
-    var_dump($_SESSION);
 
     include_once('./includes/components/secure/functions.php');
     secure();
@@ -20,7 +19,7 @@
 </head>
 <body>
     <div>
-        <h1>Welcome to the Dashboard</h1>
+        <h1 class="text-center text-4xl font-bold">Dashboard</h1>
         
     </div>
 

@@ -4,6 +4,12 @@
 
 session_start();
 
+if(isset($_SESSION['id'])){
+    header('Location:dashboard.php');
+    die();
+}
+
+
 if(isset($_POST['email'])){
     if($stmt = $connect->prepare('SELECT * FROM users WHERE email = ? AND password = ? AND active = 1')){
         $hashed = SHA1($_POST['password']);
