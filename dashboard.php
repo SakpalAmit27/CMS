@@ -7,7 +7,7 @@
     
     var_dump($_SESSION);
 
-    include('./includes/components/secure/functions.php');
+    include_once('./includes/components/secure/functions.php');
     secure();
     ?>
 

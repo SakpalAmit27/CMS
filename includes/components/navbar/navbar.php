@@ -112,6 +112,7 @@ span > a{
 </html>
 
 <?php
-    include('./includes/components/secure/functions.php');
+     
+    include_once('./includes/components/secure/functions.php');
     get_message();
 ?>
