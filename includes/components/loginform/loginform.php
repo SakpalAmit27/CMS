@@ -23,7 +23,9 @@ if(isset($_POST['email'])){
             $_SESSION['username'] = $user['username'];
 
             // giving a feedback after its connect // 
-            header('Location:dashboard.php'); 
+            set_message("You have successfully logged in " . $_SESSION['username']);
+            header('Location:dashboard.php');
+             
             exit;
 
         }else{

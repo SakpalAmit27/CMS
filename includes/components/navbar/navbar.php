@@ -110,3 +110,8 @@ span > a{
     
 </body>
 </html>
+
+<?php
+    include('./includes/components/secure/functions.php');
+    get_message();
+?>
