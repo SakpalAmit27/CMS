@@ -1,13 +1,34 @@
 
 <?php 
 
-    session_start();    
+    session_start();  
+    
+    include('./includes/database.php');
 
     include('./includes/components/navbar/navbar.php');
     
 
     include_once('./includes/components/secure/functions.php');
     secure();
+
+    // getting our user here fetching it form db // 
+
+    if($stmt = $connect->prepare('SELECT * FROM users')){
+        $stmt -> execute(); 
+
+        $result = $stmt->get_result();
+        
+        $user = $result->fetch_assoc();
+
+        var_dump($user);
+        die();
+
+        if($user){
+
+        }
+
+        $stmt->close();
+    }
     ?>
 
 <!DOCTYPE html>
