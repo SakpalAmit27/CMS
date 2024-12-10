@@ -48,5 +48,14 @@
   </nav>
 </footer>
     
+
+<style>
+  .footer-main-logo{
+    font-family:inter;
+    font-weight:900;
+    font-size:2rem;
+}
+
+</style>
 </body>
 </html>
