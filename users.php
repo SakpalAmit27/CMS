@@ -13,18 +13,18 @@
 
     // getting our user here fetching it form db // 
 
-    if($stmt = $connect->prepare('SELECT * FROM users')){
+    if($stmt = $connect->prepare('SELECT id,username,email FROM users')){
         $stmt -> execute(); 
 
         $result = $stmt->get_result();
         
-        $user = $result->fetch_all(MYSQL_ASSOC);
+        $user = $result->fetch_all(MYSQLI_ASSOC);
 
     
 
         if($user){
             echo "<pre>"; 
-            print_r($users); 
+            print_r($user); 
             echo "</pre>"; 
 
         }else{
@@ -58,7 +58,18 @@
             </div>
         </div>
 
-        
+        <?php if(!empty($user)){?>
+            <ul>
+                <?php foreach($user as $users) {?>
+                    <li><?php echo htmlspecialchars($users['username']) . " (" . htmlspecialchars($users['email']) . ")"; ?></li>
+
+
+                <?php }?>
+
+            </ul>
+
+            <?php } ?>
+
 
         
     
