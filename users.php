@@ -56,19 +56,49 @@
             <span><a href="posts.php">Posts management</a></span>
 
             </div>
+
+         
+            <?php if(!empty($user)){?>
+      
+      <?php foreach($user as $users) {?>
+                    
+
+                    <div class="overflow-x-auto flex justify-center items-center">
+        <table class="table w-[400px]">
+        <!-- head -->
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>username</th>
+            <th>email</th>
+
+            </tr>
+            
+        </thead>
+        
+        <tbody>
+            <!-- row 1 -->
+            <tr>
+            <th><?php echo htmlspecialchars($users['id'])?></th>
+            <td><?php echo htmlspecialchars($users['username'])?></td>
+            <td><?php echo htmlspecialchars($users['email']) ?></td>
+               
+            </tr>
+
+           
+        </tbody>
+        </table>
         </div>
-
-        <?php if(!empty($user)){?>
-            <ul>
-                <?php foreach($user as $users) {?>
-                    <li><?php echo htmlspecialchars($users['username']) . " (" . htmlspecialchars($users['email']) . ")"; ?></li>
-
-
                 <?php }?>
 
-            </ul>
+
 
             <?php } ?>
+
+            </div>
+            
+        </div>
+
 
 
         
