@@ -18,17 +18,26 @@
 
         $result = $stmt->get_result();
         
-        $user = $result->fetch_assoc();
+        $user = $result->fetch_all(MYSQL_ASSOC);
 
-        var_dump($user);
-        die();
+    
 
         if($user){
+            echo "<pre>"; 
+            print_r($users); 
+            echo "</pre>"; 
 
+        }else{
+            echo "No users found"; 
         }
 
-        $stmt->close();
+        $stmt -> close(); 
+    
+    }else{
+        echo "Could not prepare statment"; 
     }
+
+    
     ?>
 
 <!DOCTYPE html>
@@ -49,8 +58,10 @@
             </div>
         </div>
 
+        
 
-    <?php include('./includes/components/footer/footer.php') ?>
+        
+    
 </body>
 
 
@@ -73,4 +84,10 @@
     }
 </style>
 </html>
+
+<?php 
+
+include('./includes/components/footer/footer.php');
+
+?>
 
