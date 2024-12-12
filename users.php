@@ -13,7 +13,7 @@
 
     // getting our user here fetching it form db // 
 
-    if($stmt = $connect->prepare('SELECT id,username,email,added FROM users')){
+    if($stmt = $connect->prepare('SELECT id,username,email,added,active FROM users')){
         $stmt -> execute(); 
 
         $result = $stmt->get_result();
@@ -67,6 +67,8 @@
                     <th>Username</th>
                     <th>Email</th>
                     <th>Added</th>
+                    <th>Status</th>
+                    <th>Edit | Delete</th>
                 </tr>
             </thead>
             <tbody class="table-body">
@@ -76,6 +78,9 @@
                         <td><?php echo htmlspecialchars($users['username']); ?></td>
                         <td><?php echo htmlspecialchars($users['email']); ?></td>
                         <td><?php echo htmlspecialchars($users['added']); ?></td>
+                        <td><?php echo htmlspecialchars($users['active'])?></td>
+                        <td><a href="users_edit.php?id=<?php echo $users['id'];?>">Edit</a> | 
+                        <a href="users.php?delete=<?php echo $users['id'];?>">Delete</a></td>
                     </tr>
                 <?php } ?>
             </tbody>
@@ -124,6 +129,7 @@
         font-weight:700;
         font-family:raleway;
         font-size:1rem;
+        text-decoration: none;
 
     }
 </style>
