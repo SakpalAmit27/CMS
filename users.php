@@ -13,7 +13,7 @@
 
     // getting our user here fetching it form db // 
 
-    if($stmt = $connect->prepare('SELECT id,username,email FROM users')){
+    if($stmt = $connect->prepare('SELECT id,username,email,added FROM users')){
         $stmt -> execute(); 
 
         $result = $stmt->get_result();
@@ -22,14 +22,14 @@
 
     
 
-        if($user){
-            echo "<pre>"; 
-            print_r($user); 
-            echo "</pre>"; 
+        // if($user){
+        //     echo "<pre>"; 
+        //     print_r($user); 
+        //     echo "</pre>"; 
 
-        }else{
-            echo "No users found"; 
-        }
+        // }else{
+        //     echo "No users found"; 
+        // }
 
         $stmt -> close(); 
     
@@ -57,43 +57,32 @@
 
             </div>
 
-         
-            <?php if(!empty($user)){?>
-      
-      <?php foreach($user as $users) {?>
-                    
-
-                    <div class="overflow-x-auto flex justify-center items-center">
+            <?php if (!empty($user)) { ?>
+    <div class="overflow-x-auto flex justify-center items-center mt-20">
         <table class="table w-[400px]">
-        <!-- head -->
-        <thead>
-            <tr>
-            <th>Id</th>
-            <th>username</th>
-            <th>email</th>
-
-            </tr>
-            
-        </thead>
-        
-        <tbody>
-            <!-- row 1 -->
-            <tr>
-            <th><?php echo htmlspecialchars($users['id'])?></th>
-            <td><?php echo htmlspecialchars($users['username'])?></td>
-            <td><?php echo htmlspecialchars($users['email']) ?></td>
-               
-            </tr>
-
-           
-        </tbody>
+            <!-- head -->
+            <thead>
+                <tr class="table-head">
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Added</th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                <?php foreach ($user as $users) { ?>
+                    <tr>
+                        <th><?php echo htmlspecialchars($users['id']); ?></th>
+                        <td><?php echo htmlspecialchars($users['username']); ?></td>
+                        <td><?php echo htmlspecialchars($users['email']); ?></td>
+                        <td><?php echo htmlspecialchars($users['added']); ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
         </table>
-        </div>
-                <?php }?>
+    </div>
+<?php } ?>
 
-
-
-            <?php } ?>
 
             </div>
             
@@ -122,6 +111,20 @@
         font-family:inter;
         font-weight:500;
         font-size:1rem;
+    }
+
+    .table-head{
+        font-family:raleway;
+        font-weight:600;
+        font-size:0.9rem;
+
+    }
+
+    .table-body{
+        font-weight:700;
+        font-family:raleway;
+        font-size:1rem;
+
     }
 </style>
 </html>
