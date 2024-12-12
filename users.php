@@ -51,9 +51,6 @@
         <div class="text-center items-center justify-center mt-10" style="height: 100vh;">
             <h1 class="display-1 mb-4">USERS MANAGEMENT</h1>
             <div class="flex flex-row gap-6 items-center justify-center text-center list-container">
-            <span><a href="users.php">Users management</a></span>
-            <span> | </span>
-            <span><a href="posts.php">Posts management</a></span>
 
             </div>
 
@@ -86,6 +83,7 @@
             </tbody>
         </table>
     </div>
+    <a href="users_add.php"><button class="btn btn-outline btn-secondary">Add New User</button></a>
 <?php } ?>
 
 
