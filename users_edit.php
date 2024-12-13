@@ -61,7 +61,7 @@ include('./includes/components/navbar/navbar.php');
                         <span class="label-text">Email</span>
                     </label>
                     <label class="input input-bordered flex items-center gap-2">
-                        <input type="email" name="email" class="grow" placeholder="email@example.com" required />
+                        <input type="email" name="email" class="grow" placeholder="email@example.com" required value="<?php echo $user['email']?>"/>
                     </label>
                 </div>
                 <div class="form-control mt-3">
@@ -77,15 +77,15 @@ include('./includes/components/navbar/navbar.php');
                         <span class="label-text">Password</span>
                     </label>
                     <label class="input input-bordered flex items-center gap-2">
-                        <input type="password" name="password" class="grow" placeholder="Enter password" required />
+                        <input type="password" name="password" class="grow" placeholder="Enter password" required/>
                     </label>
                 </div>
                 <select class="select select-secondary w-full max-w-xs mt-6" name="active" id="active">
-                    <option selected value="1">Active</option>
-                    <option value="0">Inactive</option>
+                    <option <?php echo ($user['active'] == "1") ? "selected" : ""; ?> value="1">Active</option>
+                    <option <?php echo ($user['active'] == "0") ? "selected" : ""; ?> value="0">Inactive</option>
                 </select>
                 <div class="form-control mt-6">
-                    <button class="btn btn-outline btn-error" type="submit">Edit User</button>
+                    <button class="btn btn-outline btn-accent" type="submit font-semibold">Edit User</button>
                 </div>
             </form>
         </div>
