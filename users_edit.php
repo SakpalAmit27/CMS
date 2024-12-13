@@ -10,6 +10,27 @@ include('./includes/components/secure/functions.php');
 
 secure(); 
 
+
+if (isset($_POST['username'])) {
+    // Fix the prepare statement syntax
+    if ($stmt = $connect->prepare('UPDATE users SET username = ?, email = ?, active = ? WHERE id = ?')) {
+        $stmt->bind_param('sssi', $_POST['username'], $_POST['email'], $_POST['active'], $_GET['id']); 
+
+        $stmt->execute(); 
+
+        set_message("User: " . $_POST['username'] . " has been updated!");
+
+        $stmt->close();
+
+        header('Location: users.php'); 
+        exit;
+    } else {
+        // Debug SQL error
+        die("Error in prepare statement: " . $connect->error);
+    }
+}
+
+
 if(isset($_GET['id'])){
     if($stmt = $connect -> prepare('SELECT * FROM users WHERE id = ?'));
     $stmt -> bind_param('i',$_GET['id']); 
@@ -85,7 +106,7 @@ include('./includes/components/navbar/navbar.php');
                     <option <?php echo ($user['active'] == "0") ? "selected" : ""; ?> value="0">Inactive</option>
                 </select>
                 <div class="form-control mt-6">
-                    <button class="btn btn-outline btn-accent" type="submit font-semibold">Edit User</button>
+                    <button class="btn btn-outline btn-accent" type="submit font-semibold">Update User</button>
                 </div>
             </form>
         </div>
