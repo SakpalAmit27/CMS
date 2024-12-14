@@ -22,11 +22,26 @@ if (isset($_POST['username'])) {
 
         $stmt->close();
 
-        header('Location: users.php'); 
-        exit;
     } else {
         // Debug SQL error
         die("Error in prepare statement: " . $connect->error);
+    }
+
+
+    if(isset($_POST['password'])){
+        if($stmt = $connect -> prepare('UPDATE users set password = ? WHERE id = ?')){
+            $hashed = SHA1($_POST['password']);
+            $stmt -> bind_param('si', $hashed , $_GET['id']);
+
+            $stmt -> execute();
+
+            
+        }else{
+            echo "Could not prepare statment !"; 
+        }
+        header('Location: users.php'); 
+        exit;
+
     }
 }
 
