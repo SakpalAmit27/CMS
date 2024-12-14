@@ -13,7 +13,7 @@ if (isset($_POST['username'])) {
         $stmt->bind_param('ssss', $_POST['username'], $_POST['email'], $hashed, $_POST['active']); 
         $stmt->execute();
 
-        set_message("A new user " . $_POST['username'] . " has been added");
+        set_message("<hr> <center> A new user " . $_POST['username'] . " has been added </center> <hr>");
         $stmt->close();
 
         header('Location: users.php');

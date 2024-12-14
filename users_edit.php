@@ -18,7 +18,7 @@ if (isset($_POST['username'])) {
 
         $stmt->execute(); 
 
-        set_message("User: " . $_POST['username'] . " has been updated!");
+        set_message("<hr> <center> User: " . $_POST['username'] . " has been updated! </center><hr>");
 
         $stmt->close();
 
