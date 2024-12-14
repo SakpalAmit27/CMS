@@ -77,7 +77,7 @@
                         <td><?php echo htmlspecialchars($users['added']); ?></td>
                         <td><?php echo htmlspecialchars($users['active'])?></td>
                         <td><a href="users_edit.php?id=<?php echo $users['id'];?>">Edit</a> | 
-                        <a href="users.php?delete=<?php echo $users['id'];?>">Delete</a></td>
+                        <a href="users_delete.php?delete=<?php echo $users['id'];?>">Delete</a></td>
                     </tr>
                 <?php } ?>
             </tbody>
